@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dynamic-app
+spec:
+  selector:
+    app: dynamic-app
+  ports:
+    - port: 80
+      targetPort: 3000
