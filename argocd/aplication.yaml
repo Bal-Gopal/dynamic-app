@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dynamic-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Bal-Gopal/dynamic-app.git
+    targetRevision: main
+    path: k8s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dynamic-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
